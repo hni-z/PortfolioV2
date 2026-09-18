@@ -406,7 +406,7 @@ function App() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: EASE }}
       >
-        <img className="avatar" src={asset('/assets/profile-2026.jpg')} alt="Hani Zaidi" />
+        <img className="avatar" src={asset('/assets/profile-headshot-20260918.png')} alt="Hani Zaidi" />
         <h1 className="name">Hani Zaidi</h1>
       </motion.header>
 
