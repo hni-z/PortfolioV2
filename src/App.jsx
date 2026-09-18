@@ -95,22 +95,6 @@ const things = [
     image: { src: asset('/assets/experience/robotics-1.png'), alt: 'FRC 1334 Robotics' },
   },
   {
-    title: <>Programmer @ <Hl>EmpowerED</Hl></>,
-    body: [
-      'EmpowerED is a student-run initiative helping people experiencing homelessness get back on their feet, connecting them to legal support, resources, and a real path forward.',
-      'I build the software for this wonderful initiative.',
-    ],
-    image: { src: asset('/assets/projects/empowered-1.jpg'), alt: 'EmpowerED' },
-  },
-  {
-    title: <>I founded the <Hl>FinTech club at OTHS</Hl></>,
-    body: [
-      'I founded and run OTHS\'s fintech club, building a community of like-minded people who care about business, finance, and technology.',
-    ],
-    link: { label: 'variance.gg', href: 'https://variance.gg' },
-    image: { src: asset('/assets/experience/fintech-1.jpg'), alt: 'Fintech Club' },
-  },
-  {
     title: <>Founder of the <Hl>Oakville Trafalgar Bike Club</Hl></>,
     body: [
       "Started the club to get more students riding and training with real structure. We've ridden to Niagara (115 km) and Toronto (40 km), and run collaborations with other clubs and schools.",
@@ -118,6 +102,14 @@ const things = [
     ],
     link: { label: '@othsbikeclub', href: 'https://www.instagram.com/othsbikeclub', Icon: Instagram },
     image: { src: asset('/assets/experience/bikeclub-1.png'), alt: 'OTHS Bike Club' },
+  },
+  {
+    title: <>Built an <Hl>ESP32 Wi-Fi vending machine</Hl></>,
+    body: [
+      'A working vending machine on an ESP32 with a keypad, I2C LCD, and three servos, built for my computer engineering elective.',
+      'Users join a peer-to-peer network, register and log in, then dispense a product from the pinpad. Built in two weeks.',
+    ],
+    image: { src: asset('/assets/projects/christmas.jpg'), alt: 'ESP32 vending machine' },
   },
   {
     title: <>Leadership with the <Hl>Halton Police PEACE</Hl> youth program</>,
@@ -128,12 +120,12 @@ const things = [
     image: { src: asset('/assets/experience/volunteer-1.png'), alt: 'Halton Police PEACE youth program' },
   },
   {
-    title: <>Built an <Hl>ESP32 Wi-Fi vending machine</Hl></>,
+    title: <>I founded the <Hl>FinTech club at OTHS</Hl></>,
     body: [
-      'A working vending machine on an ESP32 with a keypad, I2C LCD, and three servos, built for my computer engineering elective.',
-      'Users join a peer-to-peer network, register and log in, then dispense a product from the pinpad. Built in two weeks.',
+      'I founded and run OTHS\'s fintech club, building a community of like-minded people who care about business, finance, and technology.',
     ],
-    image: { src: asset('/assets/projects/christmas.jpg'), alt: 'ESP32 vending machine' },
+    link: { label: 'variance.gg', href: 'https://variance.gg' },
+    image: { src: asset('/assets/experience/fintech-1.jpg'), alt: 'Fintech Club' },
   },
   {
     title: <><Hl>Honor Roll</Hl> student at OTHS</>,
@@ -160,6 +152,14 @@ const things = [
     body: [
       'English, French, Arabic, Urdu, Hindi, and Punjabi. Switching between them makes it easy to connect with all kinds of people.',
     ],
+  },
+  {
+    title: <>Programmer @ <Hl>EmpowerED</Hl></>,
+    body: [
+      'EmpowerED is a student-run initiative helping people experiencing homelessness get back on their feet, connecting them to legal support, resources, and a real path forward.',
+      'I build the software for this wonderful initiative.',
+    ],
+    image: { src: asset('/assets/projects/empowered-1.jpg'), alt: 'EmpowerED' },
   },
   {
     title: <>See my <Hl>resume &amp; recommendation letters</Hl></>,
