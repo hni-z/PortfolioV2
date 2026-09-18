@@ -4,6 +4,6 @@ export const personalInfo = {
   social: {
     github: "https://github.com/hni-z",
     linkedin: "https://www.linkedin.com/in/hani-zaidi/",
-    instagram: "https://www.instagram.com/hanizaidi09/",
+    instagram: "https://www.instagram.com/hani.zaidii/",
   },
 };
