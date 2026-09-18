@@ -59,12 +59,23 @@ body {
 }
 
 .avatar {
+  position: relative;
   width: clamp(88px, 11vw, 108px);
   aspect-ratio: 1;
   border-radius: 50%;
-  object-fit: cover;
-  filter: grayscale(0.25) brightness(0.98) contrast(1.02);
+  overflow: hidden;
+  background: var(--bg);
+  border: 1px solid rgba(130, 204, 206, 0.4);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.avatar img {
+  position: absolute;
+  width: 226.602%;
+  max-width: none;
+  height: auto;
+  left: -71.359%;
+  top: -32.524%;
 }
 
 .name {
