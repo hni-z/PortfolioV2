@@ -61,7 +61,7 @@ export const things = [
     title: <>Founder of the <Hl>Oakville Trafalgar Bike Club</Hl></>,
     body: [
       "Started the club to get more students riding and training with real structure. We've ridden to Niagara (115 km) and Toronto (40 km), and run collaborations with other clubs and schools.",
-      'On June 26th, 2026 we’re hosting a community ride with the Town of Oakville, giving away free gear.',
+      'On June 26th, 2026 we hosted a community ride with Uspire and the Town of Oakville, giving away free gear.',
     ],
     link: { label: '@othsbikeclub', href: 'https://www.instagram.com/othsbikeclub', Icon: Instagram },
     image: { src: asset('/assets/experience/bikeclub-1.png'), alt: 'Hani Zaidi and three other students giving thumbs up around a road bike at the OTHS Bike Club booth, under the heading Bike Club @ Club Fair' },
