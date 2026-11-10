@@ -2,12 +2,9 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Github, Linkedin, Instagram, ChevronDown, Loader2 } from 'lucide-react';
 import { personalInfo } from './data/portfolioData';
+import { things, asset } from './data/content.jsx';
 
 const EASE = [0.22, 1, 0.36, 1];
-/* bump this whenever an image is swapped — it busts browser + CDN cache so
-   every visitor loads the new file instead of an old cached copy */
-const ASSET_V = '3';
-const asset = (path) => `${path}?v=${ASSET_V}`;
 const FORMSPREE_ID = (import.meta.env.VITE_FORMSPREE_ID || '').trim();
 
 /* Resume + letters are served as AES-256-GCM ciphertext (see
@@ -61,116 +58,6 @@ async function unlockPrivateFiles(code) {
   );
 }
 
-/* highlighted place name */
-const Hl = ({ children }) => <span className="hl">{children}</span>;
-
-/* page content. body is the dropdown text, children is a nested
-   dropdown, image shows in the dropdown, contact swaps in the form */
-const things = [
-  {
-    title: <>Software Engineer @ <Hl>Precision e-Business Group</Hl></>,
-    body: [
-      'Co-op placement on the engineering team at Precision e-Business Group, a B2B SaaS company in Burlington.',
-      'I write production code that real customers depend on, building and shipping features in a professional codebase alongside full-time developers.',
-    ],
-    image: { src: asset('/assets/work/precision-1.jpg'), alt: 'Precision e-Business Group' },
-  },
-  {
-    title: <>Founder of <Hl>Valantir</Hl></>,
-    body: [
-      'Valantir matches high school students with local volunteer opportunities, turning every hour into real experience, references, and resume-worthy skills. I founded it.',
-      'We already have over 500 local organizations registered, connecting students with volunteer opportunities in their communities.',
-      'Valantir has received over 30 organization reviews and collaborated with the PMC on student outreach.',
-      'Built full-stack with Next.js, React, and a Postgres database.',
-    ],
-    link: { label: 'valantir.app', href: 'https://valantir.app' },
-    image: { src: asset('/assets/projects/valantir-1.png'), alt: 'Valantir' },
-  },
-  {
-    title: <>Business Lead @ <Hl>FRC 1334 Robotics</Hl></>,
-    body: [
-      'I run sponsorships, outreach, pitch writing, and team strategy, making the team look professional and presenting our progress clearly.',
-      'I led our team to raising over $70,000 in funding.',
-    ],
-    image: { src: asset('/assets/experience/robotics-1.png'), alt: 'FRC 1334 Robotics' },
-  },
-  {
-    title: <>Founder of the <Hl>Oakville Trafalgar Bike Club</Hl></>,
-    body: [
-      "Started the club to get more students riding and training with real structure. We've ridden to Niagara (115 km) and Toronto (40 km), and run collaborations with other clubs and schools.",
-      'On June 26th, 2026 we’re hosting a community ride with the Town of Oakville, giving away free gear.',
-    ],
-    link: { label: '@othsbikeclub', href: 'https://www.instagram.com/othsbikeclub', Icon: Instagram },
-    image: { src: asset('/assets/experience/bikeclub-1.png'), alt: 'OTHS Bike Club' },
-  },
-  {
-    title: <>Built an <Hl>ESP32 Wi-Fi vending machine</Hl></>,
-    body: [
-      'A working vending machine on an ESP32 with a keypad, I2C LCD, and three servos, built for my computer engineering elective.',
-      'Users join a peer-to-peer network, register and log in, then dispense a product from the pinpad. Built in two weeks.',
-    ],
-    image: { src: asset('/assets/projects/christmas.jpg'), alt: 'ESP32 vending machine' },
-  },
-  {
-    title: <>Leadership with the <Hl>Halton Police PEACE</Hl> youth program</>,
-    body: [
-      'Took part in Halton Regional Police’s PEACE youth program, a leadership and community-engagement initiative that brings students together with officers.',
-      'Worked on outreach and community activities, building confidence, teamwork, and a real sense of responsibility.',
-    ],
-    image: { src: asset('/assets/experience/volunteer-1.png'), alt: 'Halton Police PEACE youth program' },
-  },
-  {
-    title: <>I founded the <Hl>FinTech club at OTHS</Hl></>,
-    body: [
-      'I founded and run OTHS\'s fintech club, building a community of like-minded people who care about business, finance, and technology.',
-    ],
-    link: { label: 'variance.gg', href: 'https://variance.gg' },
-    image: { src: asset('/assets/experience/fintech-1.jpg'), alt: 'Fintech Club' },
-  },
-  {
-    title: <><Hl>Honor Roll</Hl> student at OTHS</>,
-    body: ['98% Grade 11 semester 2 GPA, strong resulst while balancing everything outside of class.'],
-  },
-  {
-    title: <>Certified in <Hl>first aid</Hl>, <Hl>IT</Hl> & <Hl>track racing</Hl></>,
-    children: [
-      { title: 'Standard First Aid & CPR/AED', body: ['Current certification in first aid and CPR/AED response.'] },
-      { title: 'Cisco IT Essentials 8', body: ['Cisco’s certification in computer hardware and IT fundamentals.'] },
-      { title: 'Microsoft Office Specialist (MOS)', body: ['Certified Microsoft Office Specialist.'] },
-      { title: 'Track Racing Certification', body: ['Completed at the Mattamy National Cycling Centre.'] },
-    ],
-  },
-  {
-    title: <>Volunteered in <Hl>healthcare</Hl>, <Hl>community</Hl>, <Hl>STEM</Hl> & <Hl>tutoring</Hl></>,
-    body: [
-      'Volunteered at the Nipissing Medical Clinic supporting patients and staff, at Oakville STEM Tutoring helping younger students with math and science, and at the Birch Glen Food Bank packing and handing out food to families.',
-      'Learned to be dependable, communicate clearly, and help without needing supervision.',
-    ],
-  },
-  {
-    title: <>Speaks <Hl>6 languages</Hl></>,
-    body: [
-      'English, French, Arabic, Urdu, Hindi, and Punjabi. Switching between them makes it easy to connect with all kinds of people.',
-    ],
-  },
-  {
-    title: <>Programmer @ <Hl>EmpowerED</Hl></>,
-    body: [
-      'EmpowerED is a student-run initiative helping people experiencing homelessness get back on their feet, connecting them to legal support, resources, and a real path forward.',
-      'I build the software for this wonderful initiative.',
-    ],
-    image: { src: asset('/assets/projects/empowered-1.jpg'), alt: 'EmpowerED' },
-  },
-  {
-    title: <>See my <Hl>resume &amp; recommendation letters</Hl></>,
-    recommendations: true,
-  },
-  {
-    title: 'Get in touch',
-    contact: true,
-  },
-];
-
 const socials = [
   { label: 'Email', href: `mailto:${personalInfo.email}`, Icon: Mail },
   { label: 'GitHub', href: personalInfo.social.github, Icon: Github },
@@ -201,11 +88,28 @@ function Figure({ src, alt }) {
   );
 }
 
-function Body({ body, image, link }) {
+function Body({ body, image, images, link }) {
   return (
     <div className="body">
       {body?.map((p, i) => <p key={i}>{p}</p>)}
       {image && <Figure src={image.src} alt={image.alt} />}
+      {images && (
+        <div className="photo-gallery">
+          {images.map((photo) => (
+            <figure key={photo.src}>
+              <a href={photo.src} target="_blank" rel="noopener noreferrer" aria-label={`View full image: ${photo.alt}`}>
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  loading="lazy"
+                  style={{ objectFit: photo.contain ? 'contain' : 'cover', objectPosition: photo.position }}
+                />
+              </a>
+              <figcaption>{photo.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
       {link && (
         <a className="link" href={link.href} target="_blank" rel="noopener noreferrer">
           {link.Icon && <link.Icon size={16} strokeWidth={1.75} />}
@@ -266,6 +170,18 @@ function Recommendations() {
   const [code, setCode] = useState('');
   const [status, setStatus] = useState('idle'); // idle | working | error | done
   const [files, setFiles] = useState([]);
+  const [copied, setCopied] = useState(false);
+
+  const onEmail = (e) => {
+    if (navigator.clipboard) {
+      e.preventDefault();
+      navigator.clipboard.writeText(personalInfo.email).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1800);
+        window.location.href = `mailto:${personalInfo.email}`;
+      });
+    }
+  };
 
   // revoke the in-memory blob URLs when they're replaced or the view unmounts
   useEffect(() => () => files.forEach((f) => URL.revokeObjectURL(f.url)), [files]);
@@ -324,7 +240,9 @@ function Recommendations() {
         {status === 'error' && (
           <div className="status">
             That code isn’t right.{' '}
-            <a className="mail-link" href={`mailto:${personalInfo.email}`}>Email me</a> for access.
+            <a className="mail-link" href={`mailto:${personalInfo.email}`} onClick={onEmail}>
+              {copied ? 'Copied ✓' : 'Email me'}
+            </a> for access.
           </div>
         )}
       </form>
@@ -406,9 +324,7 @@ function App() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: EASE }}
       >
-        <div className="avatar">
-          <img src={asset('/assets/profile-transparent-20260918.png')} alt="Hani Zaidi" />
-        </div>
+        <img className="avatar" src={asset('/assets/profile-2026.jpg')} alt="Hani Zaidi" />
         <h1 className="name">Hani Zaidi</h1>
       </motion.header>
 
@@ -427,7 +343,7 @@ function App() {
               ) : t.children ? (
                 <CertList items={t.children} />
               ) : (
-                <Body body={t.body} image={t.image} link={t.link} />
+                <Body body={t.body} image={t.image} images={t.images} link={t.link} />
               )}
             </Disclosure>
           </motion.div>
